@@ -1,7 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head><meta name="viewport" content="width=device-width, initial-scale=1"></head>
-  <body style="display:flex;justify-content:center;align-items:center;height:100vh;">
-    <button onclick="location.href='hoottown://'" style="padding:20px 40px;font-size:18px;">앱 열기</button>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>훗타운 앱 열기</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      button {
+        padding: 20px 40px;
+        font-size: 18px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="openApp()">앱 열기</button>
+
+    <script>
+      function openApp() {
+        const userAgent = window.navigator.userAgent.toLowerCase();
+        const isInstagram = userAgent.includes("instagram");
+        const isIOS = /iphone|ipad|ipod/.test(userAgent);
+
+        // 인스타그램 웹뷰인 경우
+        if (isInstagram && isIOS) {
+          // iframe 우회 방식
+          const iframe = document.createElement("iframe");
+          iframe.style.display = "none";
+          iframe.src = "hoottown://";
+          document.body.appendChild(iframe);
+        } else {
+          // 일반적인 방식
+          window.location.href = "hoottown://";
+        }
+      }
+    </script>
   </body>
 </html>
