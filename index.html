@@ -14,9 +14,6 @@
       margin: 0;
       font-family: sans-serif;
     }
-    h2 {
-      margin-bottom: 20px;
-    }
     a {
       display: inline-block;
       padding: 16px 32px;
@@ -29,7 +26,14 @@
   </style>
 </head>
 <body>
-  <h2>앱이 열리지 않나요?</h2>
-  <a href="https://hoottown.github.io/open.html" target="_blank">Safari에서 열기</a>
+  <h2>앱이 열리지 않으면 Safari에서 열어주세요</h2>
+  <a href="javascript:window.open(location.href, '_blank')">Safari에서 열기</a>
+
+  <script>
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    if (isSafari) {
+      window.location.href = "hoottown://";
+    }
+  </script>
 </body>
 </html>
