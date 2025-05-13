@@ -3,37 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>훗타운 앱 열기</title>
+  <title>훗타운 앱 바로가기</title>
   <style>
     body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
       margin: 0;
+      padding: 0;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       font-family: sans-serif;
+      flex-direction: column;
     }
-    a {
-      display: inline-block;
-      padding: 16px 32px;
-      background-color: #007AFF;
-      color: white;
-      font-size: 18px;
-      border-radius: 8px;
+    .link-container {
+      text-align: center;
       text-decoration: none;
+      color: inherit;
+    }
+    .link-container img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .title {
+      margin-top: 16px;
+      font-size: 18px;
+      font-weight: 600;
     }
   </style>
 </head>
 <body>
-  <h2>앱이 열리지 않으면 Safari에서 열어주세요</h2>
-  <a href="javascript:window.open(location.href, '_blank')">Safari에서 열기</a>
 
-  <script>
-    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-    if (isSafari) {
-      window.location.href = "hoottown://";
-    }
-  </script>
+  <a href="https://tl.3o3.co.kr/insta_profile" class="link-container" target="_blank" rel="noopener noreferrer">
+    <img src="https://d13k46lqgoj3d6.cloudfront.net/2023/4/2/2023-4-2-1680435577439.webp?w=150&f=png" alt="삼쩜삼 앱 이미지">
+    <div class="title">삼쩜삼 앱(AOS, iOS) 🤳🏻</div>
+  </a>
+
 </body>
 </html>
