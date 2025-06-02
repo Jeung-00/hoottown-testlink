@@ -1,50 +1,49 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>훗타운 앱 바로가기</title>
+  <title>iOS WebView 팝업 테스트</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      background: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       font-family: sans-serif;
-      flex-direction: column;
+      padding: 20px;
     }
-    .link-container {
-      text-align: center;
-      text-decoration: none;
-      color: inherit;
-    }
-    .link-container img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 16px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    .title {
-      margin-top: 16px;
-      font-size: 18px;
-      font-weight: 600;
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
     }
   </style>
 </head>
 <body>
 
-    <a href="https://devm.hoottown.com/" target="_blank">
-    <div class="title">삼쩜삼 앱(AOS, iOS) 🤳🏻</div>
-    </a>
+  <h1>팝업 테스트 페이지</h1>
 
-  <a href="https://tl.3o3.co.kr/insta_profile" class="link-container" target="_blank" rel="noopener noreferrer">
-    <img src="https://d13k46lqgoj3d6.cloudfront.net/2023/4/2/2023-4-2-1680435577439.webp?w=150&f=png" alt="삼쩜삼 앱 이미지">
-    <div class="title">삼쩜삼 앱(AOS, iOS) 🤳🏻</div>
-  </a>
+  <button onclick="showAlert()">Alert 띄우기</button>
+  <button onclick="showConfirm()">Confirm 띄우기</button>
+  <button onclick="showPrompt()">Prompt 띄우기</button>
+
+  <script>
+    function showAlert() {
+      alert("이것은 alert 팝업입니다!");
+    }
+
+    function showConfirm() {
+      const result = confirm("정말 계속하시겠습니까?");
+      if (result) {
+        alert("확인 버튼을 눌렀습니다.");
+      } else {
+        alert("취소 버튼을 눌렀습니다.");
+      }
+    }
+
+    function showPrompt() {
+      const name = prompt("이름을 입력해주세요:");
+      if (name !== null) {
+        alert(`안녕하세요, ${name}님!`);
+      }
+    }
+  </script>
 
 </body>
 </html>
